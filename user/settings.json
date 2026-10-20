@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "model": "opus",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git branch *)",
+      "Bash(git remote -v)",
+      "Bash(ls *)",
+      "Bash(wc *)",
+      "Bash(which *)",
+      "Bash(./gradlew tasks *)",
+      "Bash(./gradlew testDebugUnitTest *)",
+      "Bash(./gradlew lintDebug *)",
+      "Bash(./gradlew assembleDebug *)",
+      "Bash(bundle exec fastlane lanes)",
+      "Bash(xcodebuild -list *)",
+      "Bash(xcodebuild -showsdks)",
+      "Bash(xcrun simctl list *)",
+      "Bash(xcodegen generate)",
+      "Bash(swift test *)",
+      "Bash(firebase --version)",
+      "Bash(firebase projects:list)",
+      "Bash(source ~/.nvm/nvm.sh)",
+      "Bash(nvm use)",
+      "Bash(python3 -m json.tool)",
+      "Bash(system_profiler SPDisplaysDataType)",
+      "WebFetch(domain:developer.android.com)",
+      "WebFetch(domain:developer.apple.com)",
+      "WebFetch(domain:firebase.google.com)",
+      "WebFetch(domain:docs.fastlane.tools)",
+      "WebFetch(domain:support.google.com)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/guard-secrets.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

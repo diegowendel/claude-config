@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "playstore": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["/Users/diegoferreira/Workspace/android-projects/playstore-mcp/dist/index.js"],
+      "env": {
+        "REPLICATE_API_TOKEN": "${REPLICATE_API_TOKEN:-}"
+      }
+    }
+  }
+}
